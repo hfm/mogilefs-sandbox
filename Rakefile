@@ -42,3 +42,10 @@ namespace :apply do
     end
   end
 end
+
+desc "Itamae and Serverspec"
+task :all_in_one do
+  Bundler.clean_system("RUBYLIB='' vagrant up")
+  Rake::Task['apply'].invoke
+  Rake::Task['spec'].invoke
+end
