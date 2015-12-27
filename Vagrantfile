@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :storage002 do |c|
-    c.vm.network :forwarded_port, guest: 7502, host: 7502 # mogstored
+    c.vm.network :forwarded_port, guest: 7501, host: 7502 # mogstored
     c.vm.network :private_network, ip: "192.168.33.21"
   end
 
