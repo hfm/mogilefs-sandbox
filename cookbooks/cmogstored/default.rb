@@ -20,6 +20,4 @@ directory "/var/mogdata" do
   group "mogile"
 end
 
-template "/etc/mogstored.conf" do
-  variables(key: "value")
-end
+remote_file "/etc/mogstored.conf"
