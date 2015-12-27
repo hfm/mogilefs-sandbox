@@ -38,14 +38,15 @@ namespace :apply do
     host = node.pathmap('%n')
     desc "Run itamae to #{host}"
     task host do
-      sh %W(bundle exec itamae ssh --vagrant -h #{host} -y #{node} bootstrap.rb).shelljoin
+      cmd = %W(bundle exec itamae ssh --vagrant -h #{host} -y #{node} bootstrap.rb).shelljoin
+      Bundler.clean_system cmd
     end
   end
 end
 
 desc "Itamae and Serverspec"
 task :all_in_one do
-  Bundler.clean_system("RUBYLIB='' vagrant up")
+  Bundler.clean_system("vagrant up")
   Rake::Task['apply'].invoke
   Rake::Task['spec'].invoke
 end
