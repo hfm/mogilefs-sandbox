@@ -22,4 +22,31 @@ directory "/var/mogdata" do
   group "mogile"
 end
 
-remote_file "/etc/mogstored.conf"
+directory "/etc/mogilefs/"
+template "/etc/mogilefs/mogstored.conf"
+
+directory "/usr/local/lib/systemd/system" do
+  mode  "755"
+  owner "root"
+  group "root"
+end
+
+template "/usr/local/lib/systemd/system/cmogstored.socket" do
+  mode  "644"
+  owner "root"
+  group "root"
+end
+
+template "/usr/local/lib/systemd/system/cmogstored@.service" do
+  mode  "644"
+  owner "root"
+  group "root"
+end
+
+service "cmogstored.socket" do
+  action [:enable, :start]
+end
+
+service "cmogstored@1.service" do
+  action [:enable, :start]
+end

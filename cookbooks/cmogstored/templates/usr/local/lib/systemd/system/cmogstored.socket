@@ -1,0 +1,13 @@
+# original: http://bogomips.org/cmogstored/examples/cmogstored.socket
+# ==> /etc/systemd/system/cmogstored.socket <==
+# systemd-style socket activation requires cmogstored 1.5.0 and later
+[Unit]
+Description = cmogstored sockets
+
+[Socket]
+ListenStream = <%= node[:cmogstored][:httplisten] %>
+ListenStream = <%= node[:cmogstored][:mgmtlisten] %>
+Service = cmogstored@1.service
+
+[Install]
+WantedBy = sockets.target
