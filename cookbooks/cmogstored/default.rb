@@ -1,3 +1,5 @@
+package "sysstat"
+
 remote_file "/usr/local/bin/cmogstored" do
   source "files/cmogstored.centos7"
   mode   "0755"
