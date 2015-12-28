@@ -39,6 +39,7 @@ namespace :apply do
     desc "Run itamae to #{host}"
     task host do
       cmd = %W(bundle exec itamae ssh --vagrant -h #{host} -y #{node} bootstrap.rb).shelljoin
+      puts cmd
       Bundler.clean_system cmd
     end
   end
