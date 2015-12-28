@@ -6,3 +6,4 @@ cmogstored:
   mgmtlisten: '0.0.0.0:7501'
   docroot: /var/mogdata
   user: mogile
+  group: mogile

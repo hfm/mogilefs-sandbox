@@ -19,8 +19,8 @@ ExecStart = /usr/local/bin/cmogstored \
 	    --docroot=<%= node['cmogstored']['docroot'] %>
 Sockets = cmogstored.socket
 KillSignal = SIGQUIT
-User = <%= node['cmogstored']['user'] %>
-Group = nogroup
+User = <%= node[:cmogstored][:user] %>
+Group = <%= node[:cmogstored][:group] %>
 LimitNOFILE = 10000
 # some clients are slow, give them time before SIGKILL
 TimeoutStopSec = 7200
