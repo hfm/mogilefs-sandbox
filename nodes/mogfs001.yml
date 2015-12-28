@@ -1,3 +1,5 @@
 ---
 roles:
   - mogfs
+mogilefsd:
+  port: 7001
