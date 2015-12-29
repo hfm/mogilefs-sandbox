@@ -1,7 +1,9 @@
 include_recipe "../perl-build/definitions.rb"
 
-perl '5.22.1'
+perl_version = "5.22.1"
+
+perl perl_version
 
 link "/opt/perl-latest" do
-  to "/opt/perl-5.22.1"
+  to "/opt/perl-#{perl_version}"
 end
