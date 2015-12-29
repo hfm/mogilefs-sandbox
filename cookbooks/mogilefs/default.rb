@@ -30,6 +30,7 @@ package "mariadb-devel"
 execute "install mogilefs" do
   command "PATH=/opt/perl-latest/bin:$PATH sh ./install.sh -n"
   cwd     "/usr/local/mogilefs"
+  not_if  "grep -q Finishing /root/.cpanm/latest-build/build.log"
 end
 
 execute "setup mogilefs" do
@@ -42,4 +43,5 @@ execute "setup mogilefs" do
     --yes
   ).shelljoin
   cwd     "/usr/local/mogilefs"
+  not_if  "mysql -u#{node[:mogilefsd][:db_user]} -p#{node[:mogilefsd][:db_pass]} -e 'SHOW CREATE DATABASE mogilefs'"
 end
