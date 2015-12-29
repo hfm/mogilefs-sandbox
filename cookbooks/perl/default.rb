@@ -1,6 +1,6 @@
 include_recipe "../perl-build/definitions.rb"
 
-perl_version = "5.22.1"
+perl_version = "5.20.3"
 
 perl perl_version
 
