@@ -3,3 +3,8 @@ roles:
   - mogfs
 mogilefsd:
   port: 7001
+  db_user: mogile
+  db_pass: mogile
+mariadb:
+  root: root
+  pass: ""

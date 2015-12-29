@@ -32,3 +32,14 @@ execute "install mogilefs" do
   cwd     "/usr/local/mogilefs"
 end
 
+execute "setup mogilefs" do
+  command %W(
+    ./env mogdbsetup
+    --dbrootuser=#{node[:mariadb][:root]}
+    --dbrootpass=#{node[:mariadb][:pass]}
+    --dbuser=#{node[:mogilefsd][:db_user]}
+    --dbpass=#{node[:mogilefsd][:db_pass]}
+    --yes
+  ).shelljoin
+  cwd     "/usr/local/mogilefs"
+end
