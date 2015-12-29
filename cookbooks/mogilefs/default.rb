@@ -10,7 +10,9 @@ user "mogile" do
   uid         501
   gid         501
   system_user true
-  shell       "/sbin/nologin"
+  create_home true
+  home        "/"
+  shell       "/bin/bash"
 end
 
 directory "/etc/mogilefs" do
