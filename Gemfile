@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
 gem "rake"
-gem "itamae"
+gem "itamae", :github => 'itamae-kitchen/itamae'
 gem "serverspec"
