@@ -1,3 +1,5 @@
+include_recipe "./firewall.rb"
+
 package "sysstat"
 
 remote_file "/usr/local/bin/cmogstored" do
