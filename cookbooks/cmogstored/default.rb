@@ -50,6 +50,10 @@ template "/usr/local/lib/systemd/system/cmogstored@.service" do
   group "root"
 end
 
+service "firewalld.service" do
+  action [:disable, :stop]
+end
+
 service "cmogstored.socket" do
   action [:enable, :start]
 end
