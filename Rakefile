@@ -23,7 +23,7 @@ namespace :spec do
     RSpec::Core::RakeTask.new(host.to_sym) do |t|
       ENV['TARGET_HOST'] = host
       t.fail_on_error = false
-      t.pattern = "spec/{#{roles(node).join(?,)}}/*/*_spec.rb"
+      t.pattern = "spec/roles/{#{roles(node).join(?,)}}_spec.rb"
     end
   end
 end
