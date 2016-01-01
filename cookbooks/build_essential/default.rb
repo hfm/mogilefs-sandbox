@@ -7,4 +7,3 @@
   sqlite-devel
   patch
 ).each {|pkg| package pkg}
-  # db4-devel
