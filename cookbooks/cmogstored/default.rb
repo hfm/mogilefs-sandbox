@@ -22,6 +22,13 @@ directory "/var/mogdata" do
   group "mogile"
 end
 
+1.upto(3) do |i|
+  directory "/var/mogdata/dev#{i}" do
+    owner "mogile"
+    group "mogile"
+  end
+end
+
 directory "/etc/mogilefs/"
 template "/etc/mogilefs/mogstored.conf"
 

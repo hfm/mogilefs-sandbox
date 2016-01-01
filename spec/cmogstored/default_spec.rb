@@ -24,6 +24,14 @@ describe 'cmogstored' do
     it { should be_grouped_into 'mogile' }
   end
 
+  1.upto(3) do |i|
+    describe file("/var/mogdata/dev#{i}") do
+      it { should be_directory }
+      it { should be_owned_by 'mogile' }
+      it { should be_grouped_into 'mogile' }
+    end
+  end
+
   describe file('/etc/mogilefs') do
     it { should be_directory }
   end
