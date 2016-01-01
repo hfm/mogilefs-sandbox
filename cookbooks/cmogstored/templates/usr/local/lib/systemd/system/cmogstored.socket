@@ -5,8 +5,8 @@
 Description = cmogstored sockets
 
 [Socket]
-ListenStream = <%= node[:cmogstored][:httplisten] %>
-ListenStream = <%= node[:cmogstored][:mgmtlisten] %>
+ListenStream = <%= node[:cmogstored][:httplisten] || '0.0.0.0:7500' %>
+ListenStream = <%= node[:cmogstored][:mgmtlisten] || '0.0.0.0:7501' %>
 Service = cmogstored@1.service
 
 [Install]

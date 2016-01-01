@@ -14,13 +14,13 @@ After = cmogstored.socket
 
 [Service]
 ExecStart = /usr/local/bin/cmogstored \
-	    --httplisten=<%= node[:cmogstored][:httplisten] %> \
-	    --mgmtlisten=<%= node[:cmogstored][:mgmtlisten] %> \
-	    --docroot=<%= node['cmogstored']['docroot'] %>
+	    --httplisten=<%= node[:cmogstored][:httplisten] || '0.0.0.0:7500' %> \
+	    --mgmtlisten=<%= node[:cmogstored][:mgmtlisten] || '0.0.0.0:7501' %> \
+	    --docroot=<%= node[:cmogstored][:docroot] || '/var/mogdata' %>
 Sockets = cmogstored.socket
 KillSignal = SIGQUIT
-User = <%= node[:cmogstored][:user] %>
-Group = <%= node[:cmogstored][:group] %>
+User = <%= node[:cmogstored][:user] || 'mogile' %>
+Group = <%= node[:cmogstored][:group] || 'mogile' %>
 LimitNOFILE = 10000
 # some clients are slow, give them time before SIGKILL
 TimeoutStopSec = 7200
